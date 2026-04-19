@@ -54,7 +54,6 @@ public class DMNotificationManager : MonoBehaviour
     
   public void OpenWindow(DMMessage msg)
   {
-    overload?.Add(msg.overloadCost);
     var go = Instantiate(windowPrefab, windowParent);
     var win = go.GetComponent<DMMessageWindow>();
     win.Setup(msg, overload);

@@ -6,7 +6,7 @@ public class NotesWindow : MonoBehaviour
 {
   [SerializeField] private TextMeshProUGUI passwordText;
   [SerializeField] private Button closeButton;
-  [SerializeField] private string passwordHint = "Пароль: "; // текст перед паролем
+  [SerializeField] private string passwordHint = "Пароль: ";
   
   private OverloadSystem overload;
   private string password;
@@ -25,6 +25,6 @@ public class NotesWindow : MonoBehaviour
   private void Close()
   {
     Destroy(gameObject);
-    overload.Remove(1);
+    //overload.Remove(1);
   }
 }

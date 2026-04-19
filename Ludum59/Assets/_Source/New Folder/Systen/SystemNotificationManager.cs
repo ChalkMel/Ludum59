@@ -21,13 +21,13 @@ public class SystemNotificationManager : MonoBehaviour
     [SerializeField] private float maxUpdateInterval = 45f;
     
     private OverloadSystem overload;
-    private NotesManager notesManager;  // ← добавить ссылку
-    private bool hasPendingUpdate = false;
+    private NotesManager notesManager;
+    private bool hasPendingUpdate;
     
-    public void Initialize(OverloadSystem overloadSystem, NotesManager notesMgr)  // ← изменить
+    public void Initialize(OverloadSystem overloadSystem, NotesManager notesMgr) 
     {
         overload = overloadSystem;
-        notesManager = notesMgr;  // ← сохранить
+        notesManager = notesMgr;
         overload.OnChanged += CheckMemoryWarning;
         
         StartCoroutine(RandomUpdateSpawner());
@@ -73,10 +73,9 @@ public class SystemNotificationManager : MonoBehaviour
     {
         if (startNow)
         {
-            // ← передаём notesManager в окно обновления
             var window = Instantiate(updateWindowPrefab, windowsParent);
             var updateWin = window.GetComponent<SystemUpdateWindow>();
-            updateWin.Init(overload, notesManager);  // ← изменить
+            updateWin.Init(overload, notesManager);
             
             hasPendingUpdate = false;
         }

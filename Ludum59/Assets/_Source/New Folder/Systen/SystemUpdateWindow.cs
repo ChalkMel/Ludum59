@@ -7,8 +7,8 @@ public class SystemUpdateWindow : MonoBehaviour
 {
     [SerializeField] private Slider progressSlider;
     [SerializeField] private TextMeshProUGUI progressText;
-    [SerializeField] private GameObject passwordPanel;    // панель с полем ввода
-    [SerializeField] private GameObject progressPanel;    // панель с прогрессом
+    [SerializeField] private GameObject passwordPanel;
+    [SerializeField] private GameObject progressPanel;
     [SerializeField] private TMP_InputField passwordInput;
     [SerializeField] private Button submitButton;
     [SerializeField] private TextMeshProUGUI errorText;
@@ -17,7 +17,7 @@ public class SystemUpdateWindow : MonoBehaviour
     
     private OverloadSystem overload;
     private NotesManager notesManager;
-    private bool isUpdating = false;
+    private bool isUpdating;
     
     public void Init(OverloadSystem overloadSystem, NotesManager notesMgr)
     {
@@ -35,25 +35,21 @@ public class SystemUpdateWindow : MonoBehaviour
     {
         if (notesManager.CheckPassword(passwordInput.text))
         {
-            // Пароль верный - начинаем обновление
             passwordPanel.SetActive(false);
             progressPanel.SetActive(true);
             StartCoroutine(UpdateProcess());
         }
         else
         {
-            // Пароль неверный
             errorText.text = "Неверный пароль!";
             errorText.gameObject.SetActive(true);
             passwordInput.text = "";
-            
-            // Штраф за неверный пароль
-            overload?.Add(10);
         }
     }
     
     private IEnumerator UpdateProcess()
     {
+        overload?.Add(25);
         isUpdating = true;
         float currentTime = 0f;
         progressSlider.maxValue = updateDuration;
@@ -64,12 +60,11 @@ public class SystemUpdateWindow : MonoBehaviour
             currentTime += Time.deltaTime;
             progressSlider.value = currentTime;
             if (progressText != null)
-                progressText.text = $"Обновление... {Mathf.RoundToInt(currentTime / updateDuration * 100)}%";
+                progressText.text = $"Updating... {Mathf.RoundToInt(currentTime / updateDuration * 100)}%";
             yield return null;
         }
         
-        // Обновление завершено
-        overload?.Add(25);
+        overload?.Remove(25);
         Destroy(gameObject);
     }
 }

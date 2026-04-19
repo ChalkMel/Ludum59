@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
   [SerializeField] private DMNotificationManager dmManager;
   [SerializeField] private SystemNotificationManager systemManager;
   
-  [SerializeField] private NotesManager notesManager;      // ← добавить
-  [SerializeField] private DesktopIcon desktopIcon;        // ← добавить
+  [SerializeField] private NotesManager notesManager;
+  [SerializeField] private DesktopIcon desktopIcon;
     
   [Header("Spawner")]
   [SerializeField] private WindowSpawner spawner;
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
   private void UpdateUI(int value)
   {
     overloadSlider.value = value;
-    overloadText.text = $"Перегрузка: {value}%";
+    overloadText.text = $"Overload: {value}%";
   }
     
   private void GameOver()
