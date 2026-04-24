@@ -1,68 +1,49 @@
+using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Audio;
-using UnityEngine.Serialization;
-
+using UnityEngine.UI;
 public class AudioSettings : MonoBehaviour
 {
-    [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private Slider SFXSlider;
-    [SerializeField] private Slider musicSlider;
-
-    private const string master_volume_name = "SFXVolume";
-    private const string music_volume_name = "MusicVolume";
-    public static AudioSettings Instance { get; private set; }
-
-    private void Awake()
-    {
-        #region Singleton
-
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        #endregion
-        
-        SFXSlider.onValueChanged.AddListener(OnSFXVolumeSliderChanged);
-        musicSlider.onValueChanged.AddListener(OnMusicVolumeSliderChanged);
-    }
-
-    #region Load
-    private void Start()
-    {
-        TryLoadSettings(music_volume_name, musicSlider);
-        TryLoadSettings(master_volume_name, SFXSlider);
-    }
-    private void TryLoadSettings(string key, Slider slider)
-    {
-        if (PlayerPrefs.HasKey(key))
-        {
-            float volume = PlayerPrefs.GetFloat(key);
-            slider.value = volume;
-        }
-    }
-    #endregion
-
-    private void OnSFXVolumeSliderChanged(float value) =>
-        SetMixerVolume(value, master_volume_name);
+  [SerializeField] private Button settingsButton;
+  [SerializeField] private Image buttonImage;
+  [SerializeField] private Sprite loudSprite;
+  [SerializeField] private Sprite quietSprite;
+  [SerializeField] private Sprite muteSprite;
+  [SerializeField] private AudioMixerGroup mixer;
+  
+  private const string master_volume = "MasterVolume";
+  private int _currentLevel = 0;
+  private float[] _volumes = { 1f, -20f, -80f };
     
-    private void OnMusicVolumeSliderChanged(float value) =>
-        SetMixerVolume(value, music_volume_name);
+  private void Start()
+  {
+    settingsButton = GetComponent<Button>(); 
+    buttonImage = GetComponent<Image>();
+    settingsButton.onClick.AddListener(CycleVolume);
+    ApplyVolume(0);
+  }
+    
+  private void CycleVolume()
+  {
+    _currentLevel = (_currentLevel + 1) % 3;
+    ApplyVolume(_currentLevel);
+  }
 
-    private void SetMixerVolume(float value, string paramName)
+  private void ApplyVolume(int level)
+  {
+    mixer.audioMixer.SetFloat(master_volume, _volumes[level]);
+    Debug.Log(_volumes[level]);
+    switch (level)
     {
-        float volume = GetVolumeDb(value);
-
-        audioMixer.SetFloat(paramName, volume);
-        PlayerPrefs.SetFloat(paramName, value);
+      case 0:
+        buttonImage.sprite = loudSprite;
+        break;
+      case 1:
+        buttonImage.sprite = quietSprite;
+        break;
+      case 2:
+        buttonImage.sprite = muteSprite;
+        break;
     }
-    
-    private float GetVolumeDb(float value) => 
-        Mathf.Log10(value) * 20;
-    
+  }
 }

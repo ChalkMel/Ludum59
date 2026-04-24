@@ -4,17 +4,14 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private Button playButton;
-    [SerializeField] private Button settingsButton;
-    [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject menuPanel;
-    [SerializeField] private Button quitButton;
+    [SerializeField] private Button pauseButton;
+    [SerializeField] private GameObject pauseMenu;
     private bool _isPaused;
     
     private void Start()
     {
+        pauseButton.onClick.AddListener(Pause);
         playButton.onClick.AddListener(Play);
-        settingsButton.onClick.AddListener(Settings);
-        quitButton.onClick.AddListener(Quit);
     }
 
     private void Update()
@@ -30,25 +27,15 @@ public class PauseMenu : MonoBehaviour
 
     private void Play()
     {
+        pauseMenu.SetActive(false);
         Time.timeScale = 1;
-        menuPanel.SetActive(false);
         _isPaused = false;
     }
 
     private void Pause()
     {
+        pauseMenu.SetActive(true);
         Time.timeScale = 0;
-        menuPanel.SetActive(true);
         _isPaused = true;
-    }
-
-    private void Settings()
-    {
-        settingsPanel.SetActive(true);
-    }
-
-    private void Quit()
-    {
-        settingsPanel.SetActive(false);
     }
 }

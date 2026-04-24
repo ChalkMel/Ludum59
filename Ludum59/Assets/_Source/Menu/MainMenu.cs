@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
   [SerializeField] private Button playButton;
-  [SerializeField] private Button settingsButton;
+ // [SerializeField] private Button settingsButton;
   [SerializeField] private Button quitButton;
   [SerializeField] private GameObject settingsPanel;
   [SerializeField] private bool isMainMenu;
@@ -12,8 +12,8 @@ public class MainMenu : MonoBehaviour
   private void Start()
   {
     playButton.onClick.AddListener(Play);
-    settingsButton.onClick.AddListener(Settings);
-    quitButton.onClick.AddListener(Quit);
+    //settingsButton.onClick.AddListener(Settings);
+    //quitButton.onClick.AddListener(Quit);
   }
   private void Play()
   {

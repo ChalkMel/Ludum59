@@ -1,0 +1,285 @@
+fileFormatVersion: 2
+guid: 2ebb274f49f1e93459ca8bac51a050e7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 868565837409297117
+    second: Rectangle 20777_0
+  - first:
+      213: -3099437882897131671
+    second: Rectangle 20777_1
+  - first:
+      213: -3984545696696576968
+    second: Rectangle 20777_2
+  - first:
+      213: 933293920554051958
+    second: Rectangle 20777_3
+  - first:
+      213: -8862191436304138503
+    second: Rectangle 20777_4
+  - first:
+      213: -1172190029307509182
+    second: Rectangle 20777_5
+  - first:
+      213: 2795354414077122739
+    second: Rectangle 20777_6
+  - first:
+      213: 2692018332805010470
+    second: Rectangle 20777_7
+  - first:
+      213: 3159806329022066178
+    second: Rectangle 20777_8
+  - first:
+      213: -1168584097491508561
+    second: Rectangle 20777_9
+  - first:
+      213: -1508330699270721935
+    second: Rectangle 20777_10
+  - first:
+      213: -433185619101981097
+    second: Rectangle 20777_11
+  - first:
+      213: -1616552778240903758
+    second: Rectangle 20777_12
+  - first:
+      213: 8695652819099345104
+    second: Rectangle 20777_13
+  - first:
+      213: -8943582641612190615
+    second: Rectangle 20777_14
+  - first:
+      213: 280167003847847007
+    second: Rectangle 20777_15
+  - first:
+      213: -5856625938816227644
+    second: Rectangle 20777_16
+  - first:
+      213: -7100149479128608195
+    second: Rectangle 20777_17
+  - first:
+      213: 2024742098629786550
+    second: Rectangle 20777_18
+  - first:
+      213: -928785215841914137
+    second: Rectangle 20777_19
+  - first:
+      213: -5938483182798157952
+    second: Rectangle 20777_20
+  - first:
+      213: 100352351869794386
+    second: Rectangle 20777_21
+  - first:
+      213: 6039349591526868053
+    second: Rectangle 20777_22
+  - first:
+      213: -7256563151911742949
+    second: Rectangle 20777_23
+  - first:
+      213: 5557311008571724045
+    second: Rectangle 20777_24
+  - first:
+      213: -3186166969258673359
+    second: Rectangle 20777_25
+  - first:
+      213: -3411335114287172229
+    second: Rectangle 20777_26
+  - first:
+      213: -4928543901634380390
+    second: Rectangle 20777_27
+  - first:
+      213: 539606507239670479
+    second: Rectangle 20777_28
+  - first:
+      213: 2557914076319675237
+    second: Rectangle 20777_29
+  - first:
+      213: -4586354188606943276
+    second: Rectangle 20777_30
+  - first:
+      213: 1286529041635858187
+    second: Rectangle 20777_31
+  - first:
+      213: -1612547071750765074
+    second: Rectangle 20777_32
+  - first:
+      213: 4782608322244123185
+    second: Rectangle 20777_33
+  - first:
+      213: 566414001761708175
+    second: Rectangle 20777_34
+  - first:
+      213: 2370153441396860166
+    second: Rectangle 20777_35
+  - first:
+      213: -7520507933472341043
+    second: Rectangle 20777_36
+  - first:
+      213: -3551495950923557076
+    second: Rectangle 20777_37
+  - first:
+      213: 6085035199119153470
+    second: Rectangle 20777_38
+  - first:
+      213: -5662197710242735698
+    second: Rectangle 20777_39
+  - first:
+      213: -2422059126663769762
+    second: Rectangle 20777_40
+  - first:
+      213: -6976371605823764007
+    second: Rectangle 20777_41
+  - first:
+      213: -5550590502116326402
+    second: Rectangle 20777_42
+  - first:
+      213: -7838869695379602851
+    second: Rectangle 20777_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rectangle 20777_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 559
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd222daf604cd0c00800000000000000
+      internalID: 868565837409297117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: af1680aa582eb2245b8e4912c40fd485
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Rectangle 20777_0: 868565837409297117
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
