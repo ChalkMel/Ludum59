@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
 
 public class DMNotificationManager : MonoBehaviour
 {
@@ -25,9 +23,10 @@ public class DMNotificationManager : MonoBehaviour
     [Header("Game Manager")]
     [SerializeField] private GameManager gameManager;
     [SerializeField] private ColorChange colorChange;
+    
     private OverloadSystem overload;
     private bool waitingForDialog = false;
-    private bool waitingForLastClose = false;
+    private int currentDialogIndex;
     
     [System.Serializable]
     public class DMCharacter
@@ -54,32 +53,32 @@ public class DMNotificationManager : MonoBehaviour
         StartCoroutine(SpawnRoutine());
     }
     
-    private int currentDialogIndex;
-
     private IEnumerator SpawnRoutine()
     {
-    
         for (int i = 0; i < characters.Count; i++)
         {
             currentDialogIndex = i;
             var character = characters[i];
-        
+            
             ShowNotification(character, character.message);
             
-            yield return new WaitUntil(() => waitingForDialog);
+            // Ждём, пока диалог не завершится (OnDialogComplete)
             yield return new WaitWhile(() => waitingForDialog);
-
+            
+            // После 2-го диалога меняем цвет
             if (i == 1)
             {
-                colorChange.Change();
+                colorChange?.Change();
             }
             
+            // Ждём интервал перед следующим ЛС (кроме последнего)
             if (i < characters.Count - 1)
             {
                 float waitTime = (i == 0) ? firstInterval : nextInterval;
                 yield return new WaitForSeconds(waitTime);
             }
         }
+        
         yield return new WaitForSeconds(endGameDelay);
         gameManager?.EndGame();
     }
@@ -95,19 +94,27 @@ public class DMNotificationManager : MonoBehaviour
     public void OpenChat(DMCharacter character, DMMessage message)
     {
         var go = Instantiate(chatWindowPrefab, windowParent);
-        var chat = go.GetComponent<DMChatWindow>();
+        var chat = go.GetComponent<DMMessageWindow>();
         bool isLast = (currentDialogIndex == characters.Count - 1);
         chat.StartChat(character, message, overload, this, isLast);
-    
+        
         waitingForDialog = true;
     }
     
-    public void OnDialogClosed(bool isLast)
+    // Вызывается, когда ответ персонажа уже показан
+    public void OnDialogComplete()
     {
         waitingForDialog = false;
+        Debug.Log($"Диалог #{currentDialogIndex + 1} завершён");
+    }
+    
+    // Вызывается, когда окно закрыто (только для последнего диалога, если нужно)
+    public void OnDialogClosed(bool isLast)
+    {
+        // Можно ничего не делать, так как waitingForDialog уже сброшен в OnDialogComplete
         if (isLast)
         {
-            waitingForLastClose = false;
+            Debug.Log("Последнее окно закрыто");
         }
     }
 }

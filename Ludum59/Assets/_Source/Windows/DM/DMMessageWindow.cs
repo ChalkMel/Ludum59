@@ -2,7 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class DMChatWindow : MonoBehaviour
+
+public class DMMessageWindow : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private Image avatar;
@@ -95,17 +96,28 @@ public class DMChatWindow : MonoBehaviour
     private IEnumerator ShowCharacterReplyAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+        
         Sprite characterReply = _isCalmChosen ? _message.characterCalmReply : _message.characterAnnoyedReply;
         AddMessage(characterReply, false);
+        
         calmButton.gameObject.SetActive(false);
         annoyedButton.gameObject.SetActive(false);
         _isDialogComplete = true;
+        
+        // ✅ Уведомляем менеджера, что диалог завершён (ответы показаны)
+        _manager.OnDialogComplete();
     }
     
     private void Close()
     {
         _overload?.Add(-5);
-        _manager.OnDialogClosed(_isLastDialog);
+        
+        // ✅ Если диалог ещё не завершён, не уведомляем менеджера (или можно уведомить, но осторожно)
+        if (_isDialogComplete)
+        {
+            _manager.OnDialogClosed(_isLastDialog);
+        }
+        
         Destroy(gameObject);
     }
 }
